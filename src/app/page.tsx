@@ -1,103 +1,226 @@
-import Image from "next/image";
+"use client"; // add this if using Next.js App Router
+
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { FaShoppingCart } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+// import styles from "./"; 
+// import "./globals.css"
+import Header from "./Header";
+import Footer from "./Footer";
+import './Home.css'
+import Askedme from "./Askedme";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";  
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isScrolled, setIsScrolled] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+   const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showScroll, setShowScroll] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+
+
+  // Show search suggestions
+  // useEffect(() => {
+  //   if (searchTerm === "") setSuggestions([]);
+  //   else {
+  //     const filtered = allSuggestions.filter(item =>
+  //       item.toLowerCase().includes(searchTerm.toLowerCase())
+  //     );
+  //     setSuggestions(filtered);
+  //   }
+  // }, [searchTerm]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) setShowScroll(true);
+      else setShowScroll(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleSearch = () => {
+    alert(`Searching for: ${searchTerm}`);
+    setSuggestions([]);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  
+
+  const logos = [
+  {
+    name: "News 24",
+    img: "https://yt3.googleusercontent.com/ktfysjWVQCrBMIO2oQBBR58CAotdLThOhkevLiO7c_qAyVO2kap5LheweBUQt2JIMvC-iKTer0k=s900-c-k-c0x00ffffff-no-rj",
+  },
+  {
+    name: "JioCinema",
+    img: "https://upload.wikimedia.org/wikipedia/commons/1/14/Jiocinema.png",
+  },
+];
+
+  return (
+   <>
+    {/* <Header/> */}
+    <br />
+    <br />
+    <br />
+    <br />
+    <div className="home-page">
+
+        {/* Glassmorphic Search Bar with Suggestions */}
+        <div className="search-bar" >
+          <input
+            type="text"
+            placeholder="Search Beat Packs, Samples, or Services..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button onClick={handleSearch} style={{border: "none"}} >Search</button>
+          {suggestions.length > 0 && (
+            <ul className="suggestions-list">
+              {suggestions.map((item, idx) => (
+                <li key={idx} onClick={() => setSearchTerm(item)}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <br />
+
+        {/* 🔥 Hero Section with gradient title */}
+        <div className="home-hero-aesthetic">
+          <h1 className="hero-title">🎶 Elevate Your Music World</h1>
+          <p className="hero-subtitle">
+            Discover premium Beat Packs, Sample Packs, and Professional Mixing services
+          </p>
+          <button className="hero-cta"><Link href="indian-beat">Start Exploring</Link></button>
+        </div>
+        <br />
+        <br />
+
+        {/* 🔥 Slider Component */}
+        {/* <AnotherSlider /> */}
+
+        
+            <section className="home-wrapper" style={{borderRadius: "20px"}}>
+      {/* <div className="home-stats">
+        <div className="stat-card">
+          <h2>120+</h2>
+          <p>Beat Packs</p>
+        </div>
+        <div className="stat-card">
+          <h2>80+</h2>
+          <p>Sample Packs</p>
+        </div>
+        <div className="stat-card">
+          <h2>50+</h2>
+          <p>Mixing Projects</p>
+        </div>
+      </div> */}
+
+      <div className="home-sections">
+        <article className="home-card">
+          <div className="home-card-inner">
+            <div className="home-card-front">
+              <h2>🔥 Beat Packs</h2>
+              <p>Exclusive beats for your next big hit.</p>
+            </div>
+            <div className="home-card-back">
+              Explore our 🔥 Beat Packs now!
+            </div>
+          </div>
+        </article>
+
+        <article className="home-card">
+          <div className="home-card-inner">
+            <div className="home-card-front">
+              <h2>🎵 Sample Packs</h2>
+              <p>Premium samples for producers and creators.</p>
+            </div>
+            <div className="home-card-back">
+              Grab the best 🎵 Sample Packs today!
+            </div>
+          </div>
+        </article>
+
+        <article className="home-card">
+          <div className="home-card-inner">
+            <div className="home-card-front">
+              <h2>🎚️ Mixing Services</h2>
+              <p>Industry-level sound mixing and mastering.</p>
+            </div>
+            <div className="home-card-back">
+              Professional 🎚️ Mixing Services here!  
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+       
+            <br /><br />
+
+       {/* <SliderHome/> */}
+
+        {/* Trusted Section */}
+        <h1 className="trutsed">Trusted By</h1>
+         <div className="trusted-logos">
+      {logos.map((logo, index) => (
+        <div key={index} className="trusted-card">
+          <div className="trusted-inner">
+            <img src={logo.img} alt={logo.name} />
+            <p>{logo.name}</p>
+          </div>
+        </div>
+      ))}
     </div>
+
+        {/* Scroll to top button */}
+        {showScroll && (
+          <button className="scroll-top-btn" onClick={scrollToTop}>
+            ↑
+          </button>
+        )}
+      </div>
+      <Askedme/>
+      <br />
+       <section className="contact-section">
+      <div className="contact-header">
+        <h2>📩 For More Info Contact Me</h2>
+        <div className="contact-underline"></div>
+      </div>
+
+      <div className="contact-container">
+        {/* Email Box */}
+        <div className="contact-box">
+          <FaEnvelope className="contact-icon" />
+          <h3>Email</h3>
+          <a href="mailto:random@gmail.com">Trishulbeats@gmail.com</a>
+        </div>
+
+        {/* Phone Box */}
+        <div className="contact-box">
+          <FaPhoneAlt className="contact-icon" />
+          <h3>Phone</h3>
+          <a href="tel:9876543219">+91 9625796898</a>
+        </div>
+      </div>
+    </section>
+    <Footer/>
+   </>
   );
 }

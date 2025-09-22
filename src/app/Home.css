@@ -1,0 +1,835 @@
+/* SEARCH BAR CONTAINER */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1); /* glass effect */
+  backdrop-filter: blur(8px);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 1rem auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* INPUT */
+.search-bar input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+/* BUTTON */
+.search-bar button {
+  padding: 0.6rem 1rem;
+  background: #ff6666;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.search-bar button:hover {
+  background: #ff4444;
+}
+
+/* SUGGESTIONS DROPDOWN */
+.suggestions-list {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.95);
+  color: white;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0.3rem 0 0 0;
+  padding: 0.5rem 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.suggestions-list li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggestions-list li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Desktop / Laptop */
+@media (min-width: 1024px) {
+  .search-bar {
+    max-width: 700px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .search-bar {
+    max-width: 500px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    width: 80%; /* smaller width on phones */
+  }
+  .search-bar button {
+    width: 100%;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .search-bar {
+    width: 70%; /* even smaller width */
+  }
+  .search-bar input {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .search-bar button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+
+/* HERO SECTION */
+.home-hero-aesthetic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 70vh;
+  background: linear-gradient(135deg, #ff4d4d, #222); /* red + light black */
+  color: white;
+  border-radius: 16px;
+  margin: 1rem auto;
+  max-width: 1200px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* TITLE */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0px 3px 8px rgba(0,0,0,0.4);
+}
+
+/* SUBTITLE */
+.hero-subtitle {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #f2f2f2; /* soft white */
+}
+
+/* BUTTON */
+.hero-cta {
+  background: white;
+  color: #ff4d4d;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+  background: #ff4d4d;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+  .hero-cta {
+    font-size: 1rem;
+    padding: 0.7rem 1.6rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .home-hero-aesthetic {
+    padding: 3rem 1.5rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+  .hero-cta {
+    width: 100%; /* full width button */
+    font-size: 1rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .home-hero-aesthetic {
+    padding: 2rem 1rem;
+  }
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .hero-cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+
+/* Wrapper */
+.home-wrapper {
+  background: #111; /* light black */
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats Section */
+.home-stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: #222;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  background: #ff4d4d;
+  color: white;
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ff4d4d;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #f2f2f2;
+}
+
+/* Sections with Flip Cards */
+.home-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.home-card {
+  perspective: 1000px;
+}
+
+.home-card-inner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.home-card:hover .home-card-inner {
+  transform: rotateY(180deg);
+}
+
+.home-card-front,
+.home-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.home-card-front {
+  background: #222;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.home-card-front h2 {
+  color: #ff4d4d;
+  margin-bottom: 0.5rem;
+}
+
+.home-card-front p {
+  color: #ddd;
+}
+
+.home-card-back {
+  background: #ff4d4d;
+  color: white;
+  transform: rotateY(180deg);
+  font-weight: 600;
+}
+
+/* ================== RESPONSIVE ================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .stat-card h2 {
+    font-size: 1.6rem;
+  }
+  .stat-card p {
+    font-size: 0.9rem;
+  }
+  .home-card-inner {
+    height: 200px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .home-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-card {
+    width: 100%;
+    max-width: 320px;
+  }
+  .home-card-inner {
+    height: 180px;
+  }
+  .home-card-front h2 {
+    font-size: 1.2rem;
+  }
+  .home-card-front p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .home-wrapper {
+    padding: 2rem 1rem;
+  }
+  .stat-card {
+    padding: 1rem;
+  }
+  .stat-card h2 {
+    font-size: 1.4rem;
+  }
+  .stat-card p {
+    font-size: 0.8rem;
+  }
+  .home-card-inner {
+    height: 160px;
+  }
+}
+.stat-card:hover{
+  color: white;
+}
+
+
+.stat-card {
+  background: #222;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ff4d4d; /* red by default */
+  transition: color 0.3s ease;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #f2f2f2;
+  transition: color 0.3s ease;
+}
+
+/* 🔥 Hover Effect */
+.stat-card:hover {
+  transform: translateY(-6px);
+  background: #ff4d4d;
+}
+
+.stat-card:hover h2,
+.stat-card:hover p {
+  color: white; /* change numbers + text to white */
+}
+
+
+/* Section Title */
+.trutsed {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ff4d4d; /* red */
+  margin-bottom: 2rem;
+}
+
+/* Logos Container */
+.trusted-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Logo Cards */
+.trusted-card {
+  background: #222; /* light black */
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;                /* ✅ keeps content centered */
+  flex-direction: column;
+  align-items: center;          /* ✅ horizontal center */
+  justify-content: center;      /* ✅ vertical center */
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.trusted-card:hover {
+  background: #ff4d4d;
+  transform: translateY(-6px);
+}
+
+/* Logo + Text */
+.trusted-inner img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 0.8rem;
+}
+
+.trusted-inner p {
+  font-size: 1rem;
+  color: #f2f2f2;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.trusted-card:hover .trusted-inner p {
+  color: white;
+}
+
+/* ================== RESPONSIVE ================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .trutsed {
+    font-size: 2rem;
+  }
+  .trusted-inner img {
+    width: 70px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .trutsed {
+    font-size: 1.8rem;
+  }
+  .trusted-logos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  .trusted-card {
+    padding: 1rem;
+  }
+  .trusted-inner img {
+    width: 60px;
+  }
+  .trusted-inner p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .trutsed {
+    font-size: 1.5rem;
+  }
+  .trusted-logos {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .trusted-inner img {
+    width: 50px;
+  }
+  .trusted-inner p {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+/* Scroll Top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ff4d4d;   /* red */
+  color: white;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 999; /* always above other elements */
+}
+
+.scroll-top-btn:hover {
+  background: white;
+  color: #ff4d4d;
+  transform: scale(1.1);
+}
+
+/* ================== RESPONSIVE ================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .scroll-top-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    bottom: 25px;
+    right: 25px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .scroll-top-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+
+
+/* ===================== Contact Section ===================== */
+.contact-section {
+  padding: 4rem 2rem;
+  background: #111; /* light black background */
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.contact-underline {
+  width: 80px;
+  height: 4px;
+  background: #ff4d4d; /* red accent */
+  margin: 0.5rem auto 2rem auto;
+  border-radius: 2px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Contact Boxes */
+.contact-box {
+  background: #1a1a1a;
+  padding: 2rem 1.5rem;
+  border-radius: 15px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255, 77, 77, 0.3);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: #ff4d4d;
+  margin-bottom: 0.5rem;
+}
+
+.contact-box h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.contact-box a {
+  color: #ddd;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-box a:hover {
+  color: #ff4d4d;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 3rem 1.5rem;
+  }
+  .contact-box {
+    padding: 1.8rem 1.2rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 2.5rem 1rem;
+  }
+  .contact-box {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  .contact-header h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .contact-header h2 {
+    font-size: 1.4rem;
+  }
+  .contact-box h3 {
+    font-size: 1rem;
+  }
+  .contact-box a {
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .home-hero-aesthetic {
+    padding: 40px 15px;   /* reduce vertical spacing */
+    min-height: 250px;    /* set smaller height for phone */
+  }
+
+  .hero-title {
+    font-size: 1.5rem;    /* smaller title */
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;    /* smaller subtitle */
+  }
+
+  .hero-cta {
+    padding: 8px 16px;    /* smaller button */
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .home-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .stat-card {
+    width: 80%;
+    text-align: center;
+  }
+
+  .stat-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .stat-card p {
+    font-size: 0.9rem;
+  }
+}
+
+
+.home-stats {
+  display: flex;
+  flex-direction: row; /* force x-direction */
+  gap: 20px;
+  overflow-x: auto; /* allow horizontal scroll on small screens */
+  padding: 20px 0;
+}
+
+.stat-card {
+  flex: 0 0 200px; /* fixed width so they stay in a row */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ff4d6d;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Optional: hide scrollbar on mobile for cleaner look */
+.home-stats::-webkit-scrollbar {
+  display: none;
+}
+.home-stats {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 1rem 0.8rem;   /* ✅ smaller vertical padding */
+  }
+  .contact-box {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-bottom: 0.5rem;  /* ✅ tighter gap between boxes */
+    padding: 1rem 0.8rem;   /* reduced inner padding */
+  }
+  .contact-header h2 {
+    font-size: 1.3rem;      /* smaller heading */
+    margin-bottom: 0.2rem;
+  }
+  .contact-underline {
+    width: 60px;
+    height: 3px;
+    margin: 0.2rem auto 0.8rem auto;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 0.8rem 0.6rem; /* ✅ even smaller */
+  }
+  .contact-header h2 {
+    font-size: 1.2rem;
+  }
+  .contact-box {
+    padding: 0.8rem 0.6rem; /* minimal padding */
+  }
+  .contact-box h3 {
+    font-size: 0.95rem;
+    margin: 0.2rem 0;
+  }
+  .contact-box a {
+    font-size: 0.8rem;
+  }
+}
