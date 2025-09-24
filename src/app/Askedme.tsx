@@ -1,7 +1,6 @@
-import React from 'react'
-import { useState } from 'react';
-import './Askedme.css'
-import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import React, { useState } from 'react';
+import './Askedme.css';
+
 const faqs = [
   {
     question: "Who is Trishul Beats?",
@@ -26,7 +25,7 @@ const faqs = [
 ];
 
 const Askedme = () => {
-   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -34,39 +33,39 @@ const Askedme = () => {
 
   return (
     <>
-    <section className="faq-section">
-      <div className="faq-header">
-        <div className="faq-icon">❓</div>
-        <h2 className="faq-title">Frequently Asked Questions</h2>
-        <p className="faq-subtitle">
-          Answers to common questions about my services, and policies.
-        </p>
-        <div className="faq-underline"></div>
-      </div>
+      <section className="faq-section">
+        <div className="faq-header">
+          <div className="faq-icon">❓</div>
+          <h2 className="faq-title">Frequently Asked Questions</h2>
+          <p className="faq-subtitle">
+            Answers to common questions about my services, and policies.
+          </p>
+          <div className="faq-underline"></div>
+        </div>
 
-      <div className="faq-container">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className={`faq-item ${activeIndex === index ? "active" : ""}`}
-            onClick={() => toggleFAQ(index)}
-          >
-            <div className="faq-question">
-              {faq.question}
-              <span className="faq-icon-btn">
-                {activeIndex === index ? "−" : "+"}
-              </span>
+        <div className="faq-container">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className={`faq-item ${activeIndex === index ? "active" : ""}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="faq-question">
+                {faq.question}
+                <span className="faq-icon-btn">
+                  {activeIndex === index ? "−" : "+"}
+                </span>
+              </div>
+              <div className="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
             </div>
-            <div className="faq-answer">
-              <p>{faq.answer}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-    <br />
+          ))}
+        </div>
+      </section>
+      <br />
     </>
-  )
-}
+  );
+};
 
-export default Askedme
+export default Askedme;

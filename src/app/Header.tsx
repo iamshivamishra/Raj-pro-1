@@ -20,6 +20,7 @@ export default function Header() {
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
+      <div className={`header ${isScrolled ? "scrolled" : ""}`}>
       <h1 className="logos">
         <Link href="/" className="logos">
           Trishul Beats
@@ -32,7 +33,7 @@ export default function Header() {
         <span></span>
         <span></span>
       </div>
-
+</div>
       <nav>
         <ul className={`nav-lists ${menuOpen ? "active" : ""}`}>
           <li>

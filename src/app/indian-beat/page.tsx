@@ -6,6 +6,8 @@ const page = () => {
   return (
     <>
     <br />
+    <br />
+    <br />
      <div className="container fade-in">
   <div className="product-image fade-in">
     <img src="/rajan.png" alt="Indian Beat" />
@@ -23,7 +25,6 @@ const page = () => {
     </div>
   </div>
 </div>
-<br />
 
  <div className="beat-preview fade-in">
   <h1 className="text-preview">🎧 Beat Preview</h1><br /><br />

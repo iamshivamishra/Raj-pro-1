@@ -1,11 +1,8 @@
 /* HEADER BASE */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding: 1rem 2rem;
-  display: flex;
+  padding: 1rem 10px;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   background: #111;
@@ -13,6 +10,8 @@
   z-index: 1000;
   transition: background 0.3s ease, padding 0.3s ease;
 }
+
+
 
 .header.scrolled {
   background: #000;
