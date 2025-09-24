@@ -2,7 +2,7 @@
 .header {
   width: 100%;
   padding: 1rem 10px;
-  /* display: flex; */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   background: #111;
@@ -86,6 +86,8 @@
   .hamburger {
     display: flex;
   }
+
+  
 }
 
 
